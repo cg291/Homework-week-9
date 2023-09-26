@@ -5,7 +5,7 @@
     "height": 400,
     "projection": {"type": "equalEarth"},
     "data": {
-      "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+      "url": "https://github.com/cg291/Homework-week-9/blob/main/js/ne_110m.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
     },
     "transform": [
@@ -13,18 +13,17 @@
         "lookup": "properties.NAME",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
+            "url": "https://github.com/cg291/Homework-week-9/blob/main/Data/2019.csv"
           },
-          "key": "Country",
-          "fields": ["Active"]
+          "key": "Country or region",
+          "fields": ["Score"]
         }
-      },
-      {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+      }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Active Cases",
+        "field": "Happiness score",
         "type": "quantitative",
         "scale": {"type": "log"}
       },
